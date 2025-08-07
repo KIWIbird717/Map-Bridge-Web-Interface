@@ -1,7 +1,5 @@
 #root {
-  max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
   text-align: center;
 }
 
@@ -39,4 +37,33 @@
 
 .read-the-docs {
   color: #888;
+}
+
+.leaflet-bar button {
+  border: none;
+  background: #fff;
+  color: #ff0000;
+  font-size: 1.5em;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  outline: none;
+}
+.leaflet-bar button:hover {
+  background: #ffeaea;
+}
+
+.draw-btn {
+  background: #fff;
+  border: 2px solid #ff0000;
+  color: #ff0000;
+  font-size: 1.1em;
+  padding: 0.5em 1.2em;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-bottom: 10px;
+  transition: background 0.2s, color 0.2s;
+}
+.draw-btn.active {
+  background: #ff0000;
+  color: #fff;
 }

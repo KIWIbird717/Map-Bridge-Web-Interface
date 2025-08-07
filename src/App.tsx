@@ -1,35 +1,67 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import "leaflet/dist/leaflet.css";
+import { useState } from "react";
+import "./styles/App.css";
+import type { BoundsType } from "./types/types";
+import { MapContent } from "./components/MapContent";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [bounds, setBounds] = useState<BoundsType | null>(null);
+  const [drawMode, setDrawMode] = useState(false);
+  const [mapLocked, setMapLocked] = useState(false);
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
+    <div style={{ height: "100vh", width: "100vw" }}>
+      {/* <h2 style={{ textAlign: "center" }}>Select a square area on the map</h2> */}
+      <div
+        style={{
+          textAlign: "center",
+          marginBottom: 10,
+          display: "flex",
+          justifyContent: "center",
+          gap: 10,
+        }}
+      >
+        <button
+          className={drawMode ? "draw-btn active" : "draw-btn"}
+          onClick={() => setDrawMode((v) => !v)}
+          disabled={mapLocked}
+        >
+          ⬛ Выделить квадрат
         </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
+        <button
+          className="draw-btn"
+          onClick={() => setBounds(null)}
+          disabled={drawMode}
+        >
+          Очистить
+        </button>
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+
+      <MapContent
+        bounds={bounds}
+        drawMode={drawMode}
+        setBounds={setBounds}
+        setDrawMode={setDrawMode}
+        setMapLocked={setMapLocked}
+      />
+
+      <div style={{ textAlign: "center", marginTop: 20 }}>
+        {bounds ? (
+          <div>
+            <strong>Selected area coordinates:</strong>
+            <div>
+              SouthWest: {bounds[0][0].toFixed(6)}, {bounds[0][1].toFixed(6)}
+            </div>
+            <div>
+              NorthEast: {bounds[1][0].toFixed(6)}, {bounds[1][1].toFixed(6)}
+            </div>
+          </div>
+        ) : (
+          <div>No area selected</div>
+        )}
+      </div>
+    </div>
+  );
 }
 
-export default App
+export default App;
