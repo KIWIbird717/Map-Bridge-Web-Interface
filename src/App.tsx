@@ -1,8 +1,12 @@
 import "leaflet/dist/leaflet.css";
-import { useState } from "react";
+import { useState, type FC } from "react";
 import "./styles/App.css";
 import type { BoundsType } from "./types/types";
 import { MapContent } from "./components/MapContent";
+
+const Panel: FC = () => {
+  return <div></div>;
+};
 
 function App() {
   const [bounds, setBounds] = useState<BoundsType | null>(null);
@@ -11,7 +15,6 @@ function App() {
 
   return (
     <div style={{ height: "100vh", width: "100vw" }}>
-      {/* <h2 style={{ textAlign: "center" }}>Select a square area on the map</h2> */}
       <div
         style={{
           textAlign: "center",

@@ -19,8 +19,8 @@ export const MapContent: FC<MapContentProps> = (props) => {
       center={[55.751244, 37.618423]}
       zoom={10}
       style={{
-        height: "100vh",
-        width: "100vw",
+        height: "100%",
+        width: "100%",
         margin: "0 auto",
         display: "block",
       }}
