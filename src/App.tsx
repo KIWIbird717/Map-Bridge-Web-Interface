@@ -1,11 +1,25 @@
 import "leaflet/dist/leaflet.css";
 import { useState, type FC } from "react";
-import "./styles/App.css";
 import type { BoundsType } from "./types/types";
 import { MapContent } from "./components/MapContent";
+import { Card } from "./components/shared/Card";
 
 const Panel: FC = () => {
-  return <div></div>;
+  return (
+    <Card className="h-full max-w-[500px] w-[500px]">
+      <div className="flex items-center gap-3">
+        <img
+          src="./images/logo.png"
+          alt="Map Bridge Logo"
+          className="w-[80px] h-[80px]"
+        />
+        <div className="flex flex-col gap-1">
+          <h3>Map Bridge</h3>
+          <h6>Aria selection for blender addon</h6>
+        </div>
+      </div>
+    </Card>
+  );
 };
 
 function App() {
@@ -14,31 +28,33 @@ function App() {
   const [mapLocked, setMapLocked] = useState(false);
 
   return (
-    <div style={{ height: "100vh", width: "100vw" }}>
-      <div
-        style={{
-          textAlign: "center",
-          marginBottom: 10,
-          display: "flex",
-          justifyContent: "center",
-          gap: 10,
-        }}
-      >
-        <button
-          className={drawMode ? "draw-btn active" : "draw-btn"}
-          onClick={() => setDrawMode((v) => !v)}
-          disabled={mapLocked}
+    <main className="flex max-w-screen max-h-screen overflow-hidden w-screen h-screen p-1 gap-1">
+      <Panel />
+      {/* <div style={{ height: "100vh", width: "100vw", zIndex: 1 }}>
+        <div
+          style={{
+            textAlign: "center",
+            marginBottom: 10,
+            display: "flex",
+            justifyContent: "center",
+            gap: 10,
+          }}
         >
-          ⬛ Выделить квадрат
-        </button>
-        <button
-          className="draw-btn"
-          onClick={() => setBounds(null)}
-          disabled={drawMode}
-        >
-          Очистить
-        </button>
-      </div>
+          <button
+            className={drawMode ? "draw-btn active" : "draw-btn"}
+            onClick={() => setDrawMode((v) => !v)}
+            disabled={mapLocked}
+          >
+            ⬛ Выделить квадрат
+          </button>
+          <button
+            className="draw-btn"
+            onClick={() => setBounds(null)}
+            disabled={drawMode}
+          >
+            Очистить
+          </button>
+        </div> */}
 
       <MapContent
         bounds={bounds}
@@ -48,7 +64,7 @@ function App() {
         setMapLocked={setMapLocked}
       />
 
-      <div style={{ textAlign: "center", marginTop: 20 }}>
+      {/* <div style={{ textAlign: "center", marginTop: 20 }}>
         {bounds ? (
           <div>
             <strong>Selected area coordinates:</strong>
@@ -62,8 +78,9 @@ function App() {
         ) : (
           <div>No area selected</div>
         )}
-      </div>
-    </div>
+      </div> */}
+      {/* </div> */}
+    </main>
   );
 }
 

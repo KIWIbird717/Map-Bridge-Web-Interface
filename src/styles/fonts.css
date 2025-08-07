@@ -1,0 +1,11 @@
+@font-face {
+  font-family: "DejaVu";
+  font-weight: 300;
+  src: url("../../public/fonts/DejaVuSans-ExtraLight.ttf");
+}
+
+@font-face {
+  font-family: "DejaVu";
+  font-weight: 400;
+  src: url("../../public/fonts/DejaVuSans.ttf");
+}

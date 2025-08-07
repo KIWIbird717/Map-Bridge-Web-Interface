@@ -1,18 +1,70 @@
 @import "tailwindcss";
+@import "./fonts.css";
 
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+  --background: hsl(0, 0%, 9.4%);
+  --background-secondary: hsl(0, 0%, 11.4%);
+  --card-bg: hsl(0, 0%, 18.8%);
+  --card-bg-secondary: hsl(120, 0.8%, 24.1%);
+  --foreground: hsl(0, 0%, 32.9%);
+  --font: hsl(0, 1.2%, 83.7%);
+  --font-shadow: #000;
+  --border: hsl(30, 1.6%, 23.9%);
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+
+  font-family: "DejaVu", sans-serif;
+  color: var(--font);
+  text-shadow: 0px 1px 2px var(--font-shadow);
+  line-height: 1;
+  font-weight: 400;
+  font-size: 100%;
+
+  color-scheme: light;
+  background-color: var(--background);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+@theme {
+  --color-background: var(--background);
+  --color-background-secondary: var(  --background-secondary);
+  --color-card-bg: var(  --card-bg);
+  --color-card-bg-secondary: var(  --card-bg-secondary);
+  --color-foreground: var(  --foreground);
+  --color-font: var(  --font);
+  --color-border: var(  --border);
+}
+
+h1 {
+  font-size: 2.5rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 1.75rem;
+}
+
+h4 {
+  font-size: 1.5rem;
+}
+
+h5 {
+  font-size: 1.25rem;
+}
+
+h6 {
+  font-size: 1rem;
+}
+
+p {
+  font-size: 1rem;
+  line-height: 1.6;
 }
 
 a {
@@ -32,11 +84,6 @@ body {
   min-height: 100vh;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
 button {
   border-radius: 8px;
   border: 1px solid transparent;
@@ -54,17 +101,4 @@ button:hover {
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
 }
