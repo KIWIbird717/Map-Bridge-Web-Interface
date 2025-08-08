@@ -6,7 +6,7 @@ import { Panel } from "./components/Panel";
 const App: FC = () => {
   const [bounds, setBounds] = useState<BoundsType | null>(null);
   const [drawMode, setDrawMode] = useState(false);
-  const [mapLocked, setMapLocked] = useState(false);
+  const [_, setMapLocked] = useState(false);
 
   return (
     <main className="flex max-w-screen max-h-screen overflow-hidden w-screen h-screen p-1 gap-1">
