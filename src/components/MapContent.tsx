@@ -4,6 +4,7 @@ import type { LatLngBoundsExpression } from "leaflet";
 import { type FC } from "react";
 import type { BoundsType } from "../types/types";
 import { SquareSelector } from "./SquareSelector";
+import { TILE_LAYERS } from "@shared/constants/tileLayers";
 
 type MapContentProps = {
   bounds: BoundsType | null;
@@ -22,8 +23,8 @@ export const MapContent: FC<MapContentProps> = (props) => {
         className="w-full h-full block"
       >
         <TileLayer
-          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          attribution={TILE_LAYERS.cartoDarkMatter.attribution}
+          url={TILE_LAYERS.cartoDarkMatter.url}
         />
         <SquareSelector
           onBoundsChange={props.setBounds}

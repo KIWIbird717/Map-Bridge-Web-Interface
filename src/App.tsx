@@ -2,22 +2,29 @@ import "leaflet/dist/leaflet.css";
 import { useState, type FC } from "react";
 import type { BoundsType } from "./types/types";
 import { MapContent } from "./components/MapContent";
-import { Card } from "./components/shared/Card";
+import { Card } from "./shared/ui/Card";
+import { BlenderCard } from "./shared/ui/BlenderCard";
+
+const Header: FC = () => {
+  return (
+    <BlenderCard title="Header" className="gap-3 flex items-center">
+      <img
+        src="./images/logo.png"
+        alt="Map Bridge Logo"
+        className="w-[80px] h-[80px]"
+      />
+      <div className="flex flex-col gap-1">
+        <h3>Map Bridge</h3>
+        <h6>Aria selection for blender addon</h6>
+      </div>
+    </BlenderCard>
+  );
+};
 
 const Panel: FC = () => {
   return (
-    <Card className="h-full max-w-[500px] w-[500px]">
-      <div className="flex items-center gap-3">
-        <img
-          src="./images/logo.png"
-          alt="Map Bridge Logo"
-          className="w-[80px] h-[80px]"
-        />
-        <div className="flex flex-col gap-1">
-          <h3>Map Bridge</h3>
-          <h6>Aria selection for blender addon</h6>
-        </div>
-      </div>
+    <Card className="h-full max-w-[500px] min-w-[500px] w-[500px]">
+      <Header />
     </Card>
   );
 };
@@ -29,7 +36,6 @@ function App() {
 
   return (
     <main className="flex max-w-screen max-h-screen overflow-hidden w-screen h-screen p-1 gap-1">
-      <Panel />
       {/* <div style={{ height: "100vh", width: "100vw", zIndex: 1 }}>
         <div
           style={{
@@ -63,6 +69,7 @@ function App() {
         setDrawMode={setDrawMode}
         setMapLocked={setMapLocked}
       />
+      <Panel />
 
       {/* <div style={{ textAlign: "center", marginTop: 20 }}>
         {bounds ? (
