@@ -3,7 +3,7 @@ export const TILE_LAYERS = {
     attribution:
       '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
     url: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
-    selectionColor: "#ffffff",
+    selectionColor: "#4772B3",
   },
   cartoDarkMatter: {
     attribution:
@@ -14,7 +14,7 @@ export const TILE_LAYERS = {
   cartoVoyager: {
     attribution: "&copy; OpenStreetMap contributors &copy; CARTO",
     url: "https://basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png",
-    selectionColor: "#000000",
+    selectionColor: "#4772B3",
   },
   cartoPositron: {
     attribution: "&copy; OpenStreetMap contributors &copy; CARTO",
