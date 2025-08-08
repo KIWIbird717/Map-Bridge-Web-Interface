@@ -2,11 +2,14 @@ import { MapContainer, TileLayer, Rectangle } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import type { LatLngBoundsExpression } from "leaflet";
 import { type FC } from "react";
-import type { BoundsType } from "../types/types";
+import type { BoundsType } from "@shared/types/types";
 import { SquareSelector } from "./SquareSelector";
 import { TILE_LAYERS } from "@shared/constants/tileLayers";
+import { useMapStore } from "../shared/stores/map";
+import { cn } from "../shared/utils/cn";
 
 type MapContentProps = {
+  className?: string;
   bounds: BoundsType | null;
   drawMode: boolean;
   setBounds: (state: BoundsType | null) => void;
@@ -15,16 +18,23 @@ type MapContentProps = {
 };
 
 export const MapContent: FC<MapContentProps> = (props) => {
+  const mapStyle = useMapStore((state) => state.layerStyle);
+
   return (
-    <div className="w-full h-full rounded-lg overflow-hidden">
+    <div
+      className={cn(
+        "w-full h-full rounded-lg overflow-hidden",
+        props.className
+      )}
+    >
       <MapContainer
         center={[55.751244, 37.618423]}
         zoom={10}
         className="w-full h-full block"
       >
         <TileLayer
-          attribution={TILE_LAYERS.cartoDarkMatter.attribution}
-          url={TILE_LAYERS.cartoDarkMatter.url}
+          attribution={TILE_LAYERS[mapStyle].attribution}
+          url={TILE_LAYERS[mapStyle].url}
         />
         <SquareSelector
           onBoundsChange={props.setBounds}
@@ -37,9 +47,9 @@ export const MapContent: FC<MapContentProps> = (props) => {
           <Rectangle
             bounds={props.bounds as LatLngBoundsExpression}
             pathOptions={{
-              color: "#ff0000",
-              weight: 3,
-              fillColor: "#ff6666",
+              color: TILE_LAYERS[mapStyle].selectionColor,
+              weight: 2,
+              fillColor: TILE_LAYERS[mapStyle].selectionColor,
               fillOpacity: 0.2,
             }}
           />

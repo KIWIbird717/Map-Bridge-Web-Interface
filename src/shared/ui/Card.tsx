@@ -6,7 +6,7 @@ const variants = tv({
   variants: {
     bgColor: {
       default: "bg-card-bg rounded-lg px-4 py-2",
-      foreground: "bg-card-bg-secondary rounded-md p-2",
+      foreground: "bg-card-bg-secondary rounded-md p-3",
     },
   },
   defaultVariants: {

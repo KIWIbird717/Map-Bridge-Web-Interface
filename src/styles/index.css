@@ -7,10 +7,13 @@
   --card-bg: hsl(0, 0%, 18.8%);
   --card-bg-secondary: hsl(120, 0.8%, 24.1%);
   --foreground: hsl(0, 0%, 32.9%);
+  --foreground-hovered: hsl(0, 0.5%, 39.8%);
   --font: hsl(0, 1.2%, 83.7%);
   --font-shadow: hsl(0, 0%, 0%);
   --border: hsl(30, 1.6%, 23.9%);
   --icon: hsl(0, 0%, 63.1%);
+  --accent: #4772B3;
+  --input: hsl(240, 1.2%, 15.9%);
 
 
   font-family: "DejaVu", sans-serif;
@@ -35,9 +38,12 @@
   --color-card-bg: var(--card-bg);
   --color-card-bg-secondary: var(--card-bg-secondary);
   --color-foreground: var(--foreground);
+  --color-foreground-hovered: var(--foreground-hovered);
   --color-font: var(--font);
   --color-border: var(--border);
   --color-icon: var(--icon);
+  --color-accent: var(--accent);
+  --color-input: var(--input)
 }
 
 h1 {
@@ -61,7 +67,7 @@ h5 {
 }
 
 h6 {
-  font-size: 1rem;
+  font-size: 0.9rem;
 }
 
 p {
@@ -87,20 +93,24 @@ body {
 }
 
 button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
+  width: 100%;
   cursor: pointer;
-  transition: border-color 0.25s;
+  background-color: var(--foreground);
+  padding: 5px 8px;
+  border-radius: 5px;
+  border: 1px solid var(--border);
+  filter: drop-shadow(0px 2px 0px #343433);
+
+  font-family: "DejaVu", sans-serif;
+  color: var(--font);
+  text-shadow: 0px 1px 2px var(--font-shadow);
+  line-height: 1;
+  font-weight: 400;
+  font-size: 0.9rem;
 }
 button:hover {
-  border-color: #646cff;
+  background-color: var(--foreground-hovered);
 }
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+button:active {
+  background-color: var(--accent);
 }

@@ -20,7 +20,7 @@ export const BlenderCard: FC<BlenderCardProps> = ({
       {...props}
       bgColor="foreground"
       className={cn(
-        "flex flex-col items-start justify-start gap-2 pt-0.5",
+        "flex flex-col items-start justify-start gap-3 pt-0.5",
         cardClassName
       )}
     >
@@ -31,7 +31,9 @@ export const BlenderCard: FC<BlenderCardProps> = ({
         </div>
         <GripSvg />
       </div>
-      <div className={cn("", className)}>{children}</div>
+      <div className={cn("w-full flex gap-3 flex-col", className)}>
+        {children}
+      </div>
     </Card>
   );
 };
