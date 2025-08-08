@@ -1,69 +1,56 @@
-# React + TypeScript + Vite
+<p align="center">
+  <img src="./assets/icon.png" alt="Addon Icon" width="120"/>
+</p>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<h1 align="center">Map Bridge</h1>
 
-Currently, two official plugins are available:
+> 🌐 Web interface for aria selection for Map Bridge Blender addon
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+[![Vite](https://img.shields.io/badge/Vite-5+-646CFF?logo=vite&logoColor=FFD62E)](https://vitejs.dev/)
+[![TailwindCSS](https://img.shields.io/badge/TailwindCSS-3+-06B6D4?logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
+[![Docker](https://img.shields.io/badge/Docker-25+-2496ED?logo=docker&logoColor=white)](https://www.docker.com/)
+[![Leaflet](https://img.shields.io/badge/Leaflet-1.9+-199900?logo=leaflet&logoColor=white)](https://leafletjs.com/)
+[![OpenStreetMap](https://img.shields.io/badge/OpenStreetMap-Data-7EBC6F?logo=openstreetmap&logoColor=white)](https://www.openstreetmap.org/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=flat)](./LICENSE)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5+-3178c6?logo=typescript&logoColor=blue)](https://www.typescriptlang.org/)
+[![Node.js](https://img.shields.io/badge/Node.js-18+-brightgreen?logo=node.js&logoColor=green)](https://nodejs.org/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=flat)](./LICENSE)
 
-## Expanding the ESLint configuration
+Вот готовое описание для твоего README на английском с добавлением скриншотов.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+# Map Bridge Web App
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+A single-page web application for selecting an importable area from the map.
+Once the area is selected, you can copy its coordinates and paste them into the **Map Bridge** Blender add-on to import the chosen location.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## Features
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+- Select a custom area on the map and copy its **bbox** coordinates.
+- Switch between different map styles.
+- Simple, intuitive interface.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## How to use
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+1. Open the **"Select aria"** tab in the right panel.
+2. Click the **"Select aria"** button.
+3. On the map, hold the mouse button and drag to select the desired area.
+4. After selection, copy the **bbox** coordinates by clicking the **"Copy"** button.
+5. Paste the copied coordinates into the **Map Bridge** Blender add-on.
+
+## Map styles
+
+You can switch between available map styles (e.g., Dark Matter, Positron, Standard) to better suit your workflow.
+
+---
+
+## Screenshots
+
+### Main view
+
+![Main view](./assets/screenshot2.png)
+
+### Area selection
+
+![Area selection](./assets/screenshot1.png)
