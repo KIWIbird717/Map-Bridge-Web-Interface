@@ -8,7 +8,7 @@
   --card-bg-secondary: hsl(120, 0.8%, 24.1%);
   --foreground: hsl(0, 0%, 32.9%);
   --font: hsl(0, 1.2%, 83.7%);
-  --font-shadow: #000;
+  --font-shadow: hsl(0, 0%, 0%);
   --border: hsl(30, 1.6%, 23.9%);
   --icon: hsl(0, 0%, 63.1%);
 
