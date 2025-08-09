@@ -16,3 +16,31 @@ export function boundsToBboxLike(bounds: BoundsType) {
 
   return `${minLongitude},${minLatitude},${maxLongitude},${maxLatitude}`;
 }
+
+const R = 6371; // Earth's radius in kilometers;
+
+/**
+ * Calculate area of selected bounds in square kilometers
+ * Uses Haversine formula for accurate distance calculation
+ */
+export function calculateArea(bounds: BoundsType): number {
+  const [southWest, northEast] = bounds;
+  const [minLat, minLng] = southWest;
+  const [maxLat, maxLng] = northEast;
+
+  // Convert degrees to radians
+  const lat1Rad = (minLat * Math.PI) / 180;
+  const deltaLatRad = ((maxLat - minLat) * Math.PI) / 180;
+  const deltaLngRad = ((maxLng - minLng) * Math.PI) / 180;
+
+  // Calculate width (longitude difference)
+  const width = R * Math.cos(lat1Rad) * deltaLngRad;
+
+  // Calculate height (latitude difference)
+  const height = R * deltaLatRad;
+
+  // Calculate area
+  const area = width * height;
+
+  return Math.abs(area);
+}

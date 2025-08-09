@@ -9,7 +9,10 @@ import { Input } from "@shared/ui/Input";
 import CopyDownSvg from "@assets/svg/copy_down.svg?react";
 import { Field } from "@/src/shared/ui/Field";
 import { useCopyToClipboard } from "@uidotdev/usehooks";
-import { boundsToBboxLike } from "@/src/shared/utils/formatCoordinates";
+import {
+  boundsToBboxLike,
+  calculateArea,
+} from "@/src/shared/utils/formatCoordinates";
 
 type InfoLineProps = {
   children: ReactNode;
@@ -42,6 +45,8 @@ export const SelectAria: FC<SelectAriaProps> = (props) => {
       setIsCopiedInfoVisible(false);
     }, 3000);
   };
+
+  const area = props.bounds ? calculateArea(props.bounds) : 0;
 
   return (
     <BlenderCard title="Select aria">
@@ -82,7 +87,7 @@ export const SelectAria: FC<SelectAriaProps> = (props) => {
                 6
               )}, ${props.bounds?.[0][1].toFixed(6)}`}
             />
-            <Field title="Aria size" value={50} />
+            <Field title="Aria size" value={`${area.toFixed(2)} km²`} />
           </div>
           <div className="flex flex-col">
             <Button onClick={handleCopy} icon={<CopyDownSvg />}>
