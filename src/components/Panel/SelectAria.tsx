@@ -76,16 +76,16 @@ export const SelectAria: FC<SelectAriaProps> = (props) => {
         <>
           <div className="flex flex-col">
             <Input
-              title="NorthEast"
-              value={`${props.bounds?.[1][0].toFixed(
-                6
-              )}, ${props.bounds?.[1][1].toFixed(6)}`}
-            />
-            <Input
               title="SouthWest"
               value={`${props.bounds?.[0][0].toFixed(
                 6
               )}, ${props.bounds?.[0][1].toFixed(6)}`}
+            />
+            <Input
+              title="NorthEast"
+              value={`${props.bounds?.[1][0].toFixed(
+                6
+              )}, ${props.bounds?.[1][1].toFixed(6)}`}
             />
             <Field title="Aria size" value={`${area.toFixed(2)} km²`} />
           </div>

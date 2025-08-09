@@ -5,16 +5,11 @@ import type { BoundsType } from "../types/types";
  * formatCoordinates(bounds) -> "{minLongitude},{minLatitude},{maxLongitude},{maxLatitude}"
  */
 export function boundsToBboxLike(bounds: BoundsType) {
-  const [minLongitude, minLatitude] = [
-    bounds[1][1].toFixed(6),
-    bounds[1][0].toFixed(6),
-  ];
-  const [maxLongitude, maxLatitude] = [
-    bounds[0][1].toFixed(6),
-    bounds[0][0].toFixed(6),
-  ];
+  const [southWest, northEast] = bounds;
+  const [minLat, minLng] = southWest;
+  const [maxLat, maxLng] = northEast;
 
-  return `${minLongitude},${minLatitude},${maxLongitude},${maxLatitude}`;
+  return `${minLat},${minLng},${maxLat},${maxLng}`;
 }
 
 const R = 6371; // Earth's radius in kilometers;
