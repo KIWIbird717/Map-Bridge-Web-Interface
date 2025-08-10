@@ -31,3 +31,7 @@
 .leaflet-control-zoom-out:active {
   background-color: var(--accent) !important;
 }
+
+.leaflet-top {
+  top: 3  0px !important;
+} 
