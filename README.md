@@ -43,6 +43,15 @@ Once the area is selected, you can copy its coordinates and paste them into the 
 
 You can switch between available map styles (e.g., Dark Matter, Positron, Standard) to better suit your workflow.
 
+## 🚀 Quick start
+
+You have to install [NodeJS](https://nodejs.org/en/download) before start
+
+- `git clone https://github.com/KIWIbird717/Map-Bridge-Web-Interface.git`
+- `cd Map-Bridge-Web-Interface`
+- `npm install`
+- `npm run preview`
+
 ---
 
 ## Screenshots
